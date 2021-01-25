@@ -5,9 +5,6 @@ const hbs = require('hbs');
 const forcast = require('./utils/forcast.js');
 const geocode = require('./utils/geocode.js');
 
-// console.log(path.join(__dirname));
-// console.log(path.join(__dirname,'../public'));
-// console.log(path.join(__dirname,'../..'));
 
 //define paths for express config
 const publicDirectoryPath = path.join(__dirname,'../public')
