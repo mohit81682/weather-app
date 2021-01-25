@@ -109,6 +109,5 @@ app.get('*',(req,res) =>{
 const port = process.env.PORT || 7000
 
 app.listen(port, () => {
-    console.log('node server is up again on ');
+    console.log('node server is up again on port', port );
 });
-
