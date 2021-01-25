@@ -5,31 +5,14 @@ const hbs = require('hbs');
 const forcast = require('./utils/forcast.js');
 const geocode = require('./utils/geocode.js');
 
-
-//console.log(path.join(__dirname));
-//console.log(path.join(__dirname,'../public'));
-//console.log(path.join(__dirname,'../..'));
-
-// app.get('', (req,res) => {
-//     res.send('<h3>Hello express</h3>');
-// })
-
-//to send html text, normal text or arrya/object
-    //res.send('<h1>help page</h1>');
-
-//to send object
-// res.send({
-//     name: 'Andrew',
-//     age: 25
-// })
-
+// console.log(path.join(__dirname));
+// console.log(path.join(__dirname,'../public'));
+// console.log(path.join(__dirname,'../..'));
 
 //define paths for express config
 const publicDirectoryPath = path.join(__dirname,'../public')
-//how to set views path
 const viewsPath = path.join(__dirname,'../templates/views');
 const partialsPath = path.join(__dirname,'../templates/partials');
-
 
 //setup handlebar engine and view location
 app.set('views',viewsPath);
@@ -104,7 +87,6 @@ app.get('/weather',(req,res) => {
                     'error': error
                 })
             }
-
             return res.send({
                 'location': location,
                 'latitude': latitude,
@@ -117,18 +99,16 @@ app.get('/weather',(req,res) => {
 
 });
 
-
 app.get('*',(req,res) =>{
-    //res.send('404 page error');
     res.render('404',{
         'title': 'Error',
         'error-msg':'404 page not found'
     });
 });
 
+const port = process.env.PORT || 7000
 
-
-app.listen(7000, () => {
-    console.log('node server is up again');
+app.listen(port, () => {
+    console.log('node server is up again on ');
 });
 

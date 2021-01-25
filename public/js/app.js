@@ -14,16 +14,25 @@ messageOne.textContent= 'From Javascript';
 weatherForm.addEventListener('submit', function(e){
     e.preventDefault();  //event object
     messageOne.textContent= 'Loading ...';
-    fetch('http://localhost:7000/weather?location='+search.value).then((response)=>{
-    response.json().then((data) => {
-        if(data.error){
-            //return console.log(data.error);
-            messageOne.textContent = data.error;
-        } else{
-            //console.log(data);
-            messageOne.textContent= '';
-            messageTwo.textContent = data.location + ' '+ data.weather;
-        }
-    })
-});
+    fetch('/weather?location='+search.value).then((response)=>{
+        response.json().then((data) => {
+            if(data.error){
+                //return console.log(data.error);
+                messageOne.textContent = data.error;
+            } else{
+                //console.log(data);
+                messageOne.textContent= '';
+                messageTwo.textContent = data.location + ' '+ data.weather;
+            }
+        })
+    });
+
+    // fetch('http://localhost:7000/weather2?location='+search.value).then((res)=>{
+    //     res.json().then((data) => {
+    //         console.log(data);
+    //     }).catch((e) => {
+    //         console.log(e);
+    //     });
+    // })
+
 });
